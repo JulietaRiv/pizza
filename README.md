@@ -8,7 +8,7 @@ Also includes a pizzas index view, with add and delete buttons, and the capabili
 The database schema includes 2 main tables (ingredients and pizzas) and a pivot table to maneging the many to many relationship.
 
 To provide dummy data to start, i added 2 seeder files. And also due the porposes of this development, i added a request file with a basic validation.
-And to give it some visual aesthetic, i used adminlte.
+And to give it some visual aesthetic, i used https://adminlte4.gatner.be/index.html.
 
 
 ## Pre requisites
