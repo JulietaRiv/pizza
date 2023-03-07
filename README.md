@@ -1,66 +1,127 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Pizza Challenge
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+It consists in create pizzas with determined ingredients.
 
-## About Laravel
+It includes an ingredients index view, with the list of ingredients, a button to add a new one (with a very basic form) and a delete button foreach. 
+Also includes a pizzas index view, with add and delete buttons, and the capability of edition too (Re using the same form). 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+The database schema includes 2 main tables (ingredients and pizzas) and a pivot table to maneging the many to many relationship.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+To provide dummy data to start, i added 2 seeder files. And also due the porposes of this development, i added a request file with a basic validation.
+And to give it some visual aesthetic, i used https://adminlte4.gatner.be/index.html.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## Pre requisites
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+php<br> 
+git<br>
+composer (with all the Composer and Laravel dependencies)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## How To Use
 
-## Laravel Sponsors
+```bash
+# Clone this repository
+$ git clone https://github.com/JulietaRiv/pizza
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+# Go into the repository
+$ cd pizza
 
-### Premium Partners
+# Copy .env.example file
+$ cp .env.example .env
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+# Install sail dependencies
+$ composer install
 
-## Contributing
+# Start the app
+$./vendor/bin/sail up
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# Run migrations and seeders
+$ sail artisan migrate --seed
 
-## Code of Conduct
+# Install dependencies of the container
+$ sail composer install
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# open browser http://localhost/pizzas
+```
 
-## Security Vulnerabilities
+> **Note**
+> Then you will have a basic dummy data to make the app work <br> <br>
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+## Challenge 
+Web app test
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Introduction
+
+● Write a web application as described below.
+● Your code should work. Code design, accordance to standards and style will also be
+evaluated.
+● You may use the libraries of your choice, as far as you specify those as installation
+requirements (with instructions if applicable) and use Laravel as a base framework.
+● Presence of any kind of tests will be evaluated as well.
+● The response must be emailed back at most 48h after receiving this document.
+● No questions will be answered. If you have any questions, just choose a sensible answer
+and document your assumptions in your response.
+● Don’t worry if you don’t manage to do it all, this is just to get a feeling of what you are
+capable of!
+● If you have some time left after completing the requirements, and you want to implement
+some extra features (orders, delivery, etc.), you are free to do so, as long as you
+document them.
+
+Deliverables
+• Source code of your application.
+o We are happy with code handed in a ​zip file​, but we like it even better when we
+get access to a github repository​.
+o We know how to use composer, npm... so don’t bother including ALL the external
+libraries you use.
+
+• Installation steps, including all installation requirements like libraries, etc.
+• If applicable, SQL for the creation of the data model and some sample data to test your
+application.
+
+Requirements
+The application will allow the users to manage a small catalog of pizzas and the ingredients
+needed to bake them. In particular, users must be able to add and remove the ingredients of an
+existing pizza (and if possible give those ingredients an order of appearance).
+On the front-end side, the usage of JavaScript for the integration is required.
+● Ingredients
+○ An ingredient has a name and a cost price.
+● Pizzas
+○ A pizza has a name, a selling price and is made from several ingredients.
+The selling price of a pizza equals the total of all its ingredients plus 50% of the total for the
+preparation.
+● Examples:
+○ The Fun Pizza is made of the following ingredients:
+■ tomato - 0.5 eur
+■ sliced mushrooms - 0.5 eur
+■ feta cheese - 1.0 eur
+■ sausages - 1.0 eur
+■ sliced onion - 0.5 eur
+■ mozzarella cheese - 0.5 eur
+■ oregano 1 eur
+■ Total Price = 7.5 eur
+○ The Super Mushroom Pizza has a layer of mushrooms on top, and is made of
+these ingredients:
+■ tomato - 0.5 eur
+■ bacon - 1.0 eur
+■ mozzarella cheese - 0.5 eur
+■ sliced mushrooms - 0.5 eur
+■ oregano - 1.0 eur
+■ Total Price = 5.25 eur
+
+Good luck!
+
+
+## Autor ✒️
+
+* **Julieta Riv** - https://github.com/JulietaRiv
+
+
+## Versions 📌
+
+php 8.1<br>
+laravel "^9.19"
+
+
+ 😊
